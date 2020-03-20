@@ -1,5 +1,6 @@
 package hachi.hachishop.domain;
 
+import hachi.hachishop.domain.item.Delivery;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,7 +25,11 @@ public class Order {
     @JoinColumn(name = "member_id") //맵핑을 어디로 해주냐 member_id 가 FK 가 됨
     private Member member;
 
+    @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems= new ArrayList<>();
+    @OneToOne
+    @JoinColumn(name = "delivery_id")
+    private Delivery delivery;
 
     private LocalDateTime orderDate; // 주문시간
 
