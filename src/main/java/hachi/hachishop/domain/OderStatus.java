@@ -1,4 +1,5 @@
 package hachi.hachishop.domain;
 
-public class OderStatus {
+public enum OderStatus {
+    ORDER, CANCEL
 }

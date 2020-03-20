@@ -2,7 +2,7 @@ package hachi.hachishop.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.criterion.Order;
+
 
 import javax.persistence.*;
 import java.util.ArrayList;
