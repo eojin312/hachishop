@@ -1,4 +1,4 @@
-package hachi.hachishop.domain;
+package hachi.hachishop.domain.item;
 
 import lombok.Getter;
 import lombok.Setter;

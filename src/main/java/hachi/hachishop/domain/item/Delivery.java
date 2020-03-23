@@ -1,8 +1,6 @@
 package hachi.hachishop.domain.item;
 
 
-import hachi.hachishop.domain.Address;
-import hachi.hachishop.domain.Order;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +15,7 @@ public class Delivery{
     @Column(name = "delivery_id")
     private Long id;
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private Order order;
 
     @Embedded
