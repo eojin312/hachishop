@@ -1,8 +1,19 @@
 package hachi.hachishop.exception;
 
 public class NotEnoughStockException extends RuntimeException {
+    public NotEnoughStockException() {
+        super();
+    }
 
-    public NotEnoughStockException(String msg) {
-        super(msg);
+    public NotEnoughStockException(String message) {
+        super(message);
+    }
+
+    public NotEnoughStockException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public NotEnoughStockException(Throwable cause) {
+        super(cause);
     }
 }
