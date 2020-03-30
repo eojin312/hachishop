@@ -1,5 +1,5 @@
 package hachi.hachishop.domain.item;
 
-public enum OderStatus {
+public enum OrderStatus {
     ORDER, CANCEL
 }
