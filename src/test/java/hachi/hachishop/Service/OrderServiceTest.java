@@ -64,8 +64,20 @@ public class OrderServiceTest {
     }
 
     @Test
-    public void 재고수량초과() {
+    public void 주문취소() {
+        Member member = createMember();
+        Book item = createBook("JPA 책", 10000, 10);
 
+        int orderCount = 2;
+
+        Long orderId = orderService.order(member.getId(), item.getId(), orderCount);
+
+        orderService.cancelOrder(orderId);
+
+        Order getOrder = orderRepository.findOne(orderId);
+
+        assertEquals("주문 취소시 상태느 CANCEL 이다", OrderStatus.CANCEL, getOrder.getStatus());
+        assertEquals("주문이 취소된 상품은 그만큼 재고가 증가해야한다", 10, item.getStockQuantity());
     }
 
 
