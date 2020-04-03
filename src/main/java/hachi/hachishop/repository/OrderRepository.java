@@ -22,6 +22,14 @@ public class OrderRepository {
     }
 
     //검색용 메소드
-    //public List<Order> findAll(OrderSearch orderSearch) {}
+    public List<Order> findAll(OrderSearch orderSearch) {
+
+        return em.createQuery("select o from Order o join o.member m" + " where o.status = :status" +
+                " and m.name like :name" ,Order.class)
+                .setParameter("status", orderSearch.getOrderStatus()) //파라미터 바인딩
+                .setParameter("name", orderSearch.getMemberName())
+                .setMaxResults(1000) //최대 천건 결과 제한하기
+                .getResultList();
+    }
 
 }
