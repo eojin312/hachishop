@@ -1,10 +1,13 @@
 package hachi.hachishop.repository;
 
+import hachi.hachishop.domain.item.Member;
 import hachi.hachishop.domain.item.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -31,5 +34,13 @@ public class OrderRepository {
                 .setMaxResults(1000) //최대 천건 결과 제한하기
                 .getResultList();
     }
+
+
+    public List<Order> findAllByCriteria(OrderSearch orderSearch) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Order> cq = cb.createQuery(Order.class);
+        Root<Order> o = cq.from(Order.class);
+        Join<Order, Member> m = o.join("member", JoinType.INNER); //회원과 조인
+        List<Predicate> criteria = new ArrayList<>();
 
 }
