@@ -1,13 +1,10 @@
 package hachi.hachishop.repository;
 
-import hachi.hachishop.domain.item.Member;
 import hachi.hachishop.domain.item.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
