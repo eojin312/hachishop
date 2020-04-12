@@ -98,4 +98,12 @@ public class OrderServiceTest {
         em.persist(member);
         return member;
     }
+    private Member 중복멤버생성테스트() {
+        Member member = new Member();
+
+        member.setName("회원2");
+        member.setAdress(new Address("속초", "강원도", "11233-213"));
+        em.persist(member);
+        return member;
+    }
 }
