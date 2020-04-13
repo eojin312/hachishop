@@ -94,7 +94,7 @@ public class OrderServiceTest {
         Member member = new Member();
 
         member.setName("회원1");
-        member.setAdress(new Address("서울", "경기", "123-213"));
+        member.setAddress(new Address("서울", "경기", "123-213"));
         em.persist(member);
         return member;
     }
@@ -102,7 +102,7 @@ public class OrderServiceTest {
         Member member = new Member();
 
         member.setName("회원2");
-        member.setAdress(new Address("속초", "강원도", "11233-213"));
+        member.setAddress(new Address("속초", "강원도", "11233-213"));
         em.persist(member);
         return member;
     }

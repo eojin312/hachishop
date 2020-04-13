@@ -19,7 +19,7 @@ public class Member {
     private String name;
 
     @Embedded
-    private Address adress;
+    private Address address;
 
     /**
      * 1:N
