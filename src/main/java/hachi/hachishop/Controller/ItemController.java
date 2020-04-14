@@ -1,6 +1,7 @@
 package hachi.hachishop.Controller;
 
 import hachi.hachishop.domain.item.Book;
+import hachi.hachishop.domain.item.Item;
 import hachi.hachishop.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -46,6 +48,15 @@ public class ItemController {
         itemService.saveItem(book);
         return "redirect:/";
     }
+
+    @GetMapping("/items")
+    public String list(Model model) {
+        List<Item> itemList = itemService.findItems();
+        model.addAttribute("items", itemList);
+        return "items/itemList";
+
+    }
+
 
 
 }
