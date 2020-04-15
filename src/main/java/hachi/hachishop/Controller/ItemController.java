@@ -73,7 +73,7 @@ public class ItemController {
 
     @PostMapping(value = "/items/{itemId}/edit")
     //view 에서 th:object 에서 선언한 form 을 여기로 오게 해준다
-    public String updateItem(@PathVariable String itemId, @ModelAttribute("form") BookForm form) {
+    public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) {
 
         Book book = new Book();
         book.setId(form.getId());
