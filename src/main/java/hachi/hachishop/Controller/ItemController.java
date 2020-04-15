@@ -55,7 +55,7 @@ public class ItemController {
         model.addAttribute("items", itemList);
         return "items/itemList";
     }
-    @GetMapping(value = "/item/{itemId}/edit")
+    @GetMapping(value = "/items/{itemId}/edit")
     public String updateItemForm(@PathVariable("itemId") Long itemId, Model model) {
         Book item = (Book) itemService.findOne(itemId);
 
@@ -71,7 +71,7 @@ public class ItemController {
         return "items/updateItemForm";
     }
 
-    @PostMapping(value = "/item/{itemId}/edit")
+    @PostMapping(value = "/items/{itemId}/edit")
     //view 에서 th:object 에서 선언한 form 을 여기로 오게 해준다
     public String updateItem(@PathVariable String itemId, @ModelAttribute("form") BookForm form) {
 
@@ -84,7 +84,7 @@ public class ItemController {
         book.setIsbn(form.getIsbn());
 
         itemService.saveItem(book);
-        return "redirect:items";
+        return "redirect:/items";
     }
 
 }
