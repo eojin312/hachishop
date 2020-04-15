@@ -1,6 +1,12 @@
 # hachishop 
-
 ## JPA 와 SpringBoot 로 간단한 쇼핑몰 만들기
+ - 제목 그대로 쇼핑몰입니다 
+  - 정식 서비스가 아닌 샘플 연습용입니다.
+  
+## 목표
+ - 쇼핑몰의 DB 구조를 알기
+ - JPA 기술 익숙해지기
+ - SpringBoot 연습
 
 ## ER Diagram                      
 
