@@ -17,7 +17,7 @@ public class ItemRepository {
     public void save(Item item) {
         if (item.getId() == null) {
             em.persist(item);
-        } else { //여기서 merge 가 뭐지?! 하지만 실무에서 많이 쓸 일은 없음
+        } else {
             em.merge(item);
         }
     }

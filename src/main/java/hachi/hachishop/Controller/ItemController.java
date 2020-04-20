@@ -74,16 +74,16 @@ public class ItemController {
     @PostMapping(value = "/items/{itemId}/edit")
     //view 에서 th:object 에서 선언한 form 을 여기로 오게 해준다
     public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) {
+        // 컨트롤러에서 어설프게 엔티티 생성하는 것보다 서비스에서 생성하는 것이 낫다
+//        Book book = new Book();
+//        book.setId(form.getId());
+//        book.setName(form.getName());
+//        book.setPrice(form.getPrice());
+//        book.setStockQuantity(form.getStockQuantity());
+//        book.setAuthor(form.getAuthor());
+//        book.setIsbn(form.getIsbn());
 
-        Book book = new Book();
-        book.setId(form.getId());
-        book.setName(form.getName());
-        book.setPrice(form.getPrice());
-        book.setStockQuantity(form.getStockQuantity());
-        book.setAuthor(form.getAuthor());
-        book.setIsbn(form.getIsbn());
-
-        itemService.saveItem(book);
+        itemService.updateItem(itemId, form.getName(), form.getPrice(), form.getStockQuantity());
         return "redirect:/items";
     }
 
